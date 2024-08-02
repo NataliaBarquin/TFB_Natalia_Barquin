@@ -1,0 +1,55 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="NLM-QUESTIONS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="NLM-QUESTION" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="SUBJECT"/>
+              <xs:element type="xs:string" name="MESSAGE"/>
+              <xs:element name="SUB-QUESTIONS">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="SUB-QUESTION" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ANNOTATIONS">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="FOCUS" maxOccurs="unbounded" minOccurs="0"/>
+                                <xs:element type="xs:string" name="TYPE"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ANSWERS">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ANSWER" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="answerid" use="optional"/>
+                                        <xs:attribute type="xs:short" name="pairid" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="subqid" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="qid" use="optional"/>
+            <xs:attribute type="xs:string" name="fRef" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
