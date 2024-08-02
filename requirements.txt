@@ -1,4 +1,8 @@
 pydantic
 pydantic-xml
-
+xsdata[cli,lxml,soap]
 pandas
+jupyter
+sidetable
+seaborn 
+matplotlib

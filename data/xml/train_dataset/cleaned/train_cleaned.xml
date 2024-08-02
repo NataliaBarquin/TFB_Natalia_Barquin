@@ -3439,8 +3439,8 @@
 	</SUB-QUESTIONS>
 </NLM-QUESTION>
 <NLM-QUESTION qid="Q30" fRef="1-123712647">
-	<SUBJECT>Nephrotic Syndrome</SUBJECT>
-	<MESSAGE>What is Nephrotic Syndrome.  What are its causes and cures?</MESSAGE>
+	
+    
 	<SUB-QUESTIONS>
 		<SUB-QUESTION subqid="Q30-S1">
 			<ANNOTATIONS>
