@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Category Classifier</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <article>
+        <h1>Ask a Question</h1>
+        <p>
+            <h2>Notice: Disease Risk Prediction Project</h2>
+
+            This website functions as a medical needs classifier based on a user's query, based on an academic project using publicly available internet data. It's important to note that this tool is <strong>not a real medical clasificator</strong>.
+            
+            Warnings and Considerations:
+            
+                Personal Project: This service is a personal undertaking and has not been approved by medical professionals or health institutions.
+            
+                Data Limitations: The accuracy of the forecast depends on the quality and representativeness of the data adopted in the model. This project employs a particular dataset and may not precisely illustrate the variety of individual circumstances.
+            
+                Medical Consultation: It is essential to see a medical professional for a thorough health check-up. The details provided by this project do not replace a doctor’s opinion.
+            
+            Final Note:
+            
+            This project is offered for educational purposes only and should not replace medical advice. If you are worried about your health, we recommend consulting a healthcare professional.
+            
+            Your health should come first! See your doctor for individualised, precise guidance.
+        </p>
+        <form id="askForm">
+            <label for="summary">Summary:</label>
+            <input type="text" id="summary" name="summary" required><br><br>
+            <label for="question">Question:</label>
+            <input type="text" id="question" name="question" required><br><br>
+            <button type="submit">Submit</button>
+        </form>
+        <h2>Response</h2>
+        <div id="response"></div>
+    </article>
+    
+
+    <script>
+        $(document).ready(function() {
+            $('#askForm').on('submit', function(event) {
+                event.preventDefault();
+                
+                var summary = $('#summary').val();
+                var question = $('#question').val();
+                
+                $.ajax({
+                    url: '/ask',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ summary: summary, question: question }),
+                    success: function(response) {
+                        $('#response').text(response.answer);
+                    },
+                    error: function(error) {
+                        $('#response').text('Error: ' + error.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

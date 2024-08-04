@@ -1,0 +1,6 @@
+flask
+psycopg2-binary
+numpy==1.23.0
+tensorflow
+scikit-learn
+transformers
