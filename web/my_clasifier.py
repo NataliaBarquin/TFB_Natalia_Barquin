@@ -17,7 +17,4 @@ def category_clasification(model, tokenizer, label_encoder, summary, question):
     index_of_max = np.argmax(prediction)
     unencoded_prediction = label_encoder.inverse_transform(np.array([index_of_max]))[0]
 
-    #categories = {8:"information" }
-
-    #return categories.get(np.array([index_of_max])[0])
     return unencoded_prediction

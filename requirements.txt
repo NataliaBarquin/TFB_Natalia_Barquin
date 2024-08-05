@@ -9,7 +9,8 @@ seaborn
 matplotlib
 contractions
 spacy==3.5.0
-
+xgboost
+imbalanced-learn
 wordcloud
 gensim
 tensorflow
